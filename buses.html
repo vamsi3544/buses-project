@@ -1,0 +1,246 @@
+<html>
+<head>
+<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>    
+<style>
+
+    marquee{
+        color: greenyellow;
+        font-size: 100px;
+        font-family: jokerman;
+        font-weight: bold;
+    }
+body{
+    
+     background-size:100%;
+     background-image:url("https://blog.redbus.pe/wp-content/uploads/2017/04/shutterstock_1429891862-scaled.jpg");
+    background-attachment: fixed;
+    }
+div{margin-left: 400px;
+    margin-top: 160px;
+    color:black;
+    font-weight:bold;
+    font-style:italic;
+    font-size:30px;
+    word-spacing:20px;
+    font-family: jokerman;}
+
+#tab{background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbqwjBP3MVApahCtAy-rkDUyQLAsUkFCasQw&usqp=CAU");
+     color:orange;
+     font-weight:bold;
+    font-style:italic;
+    
+    
+    
+    
+}
+th{background-color:green;
+   text-decoration:underline;
+    letter-spacing:2px;
+    text-align:center;
+    }
+td{text-align:center;}
+
+
+</style>
+
+
+</head>
+<body>
+
+    <marquee>Happy Journey booknow...<img src="./images/baby-groot-4k-hd-superheroes-wallpaper-preview.jpg" height="100px" width="300px"><img src="./images/wp7642267.jpg" height="100px" width="300px"></marquee>
+<div>
+Form:
+<select  id="abc" class="btn btn-Success">
+<option>--select--</option>
+<option>hyderabad</option>
+<option>bng</option>
+<option>chn</option>
+<option>del</option>
+<option>vizag</option>
+</select>
+
+To:
+<select id="bca" class="btn btn-info">
+<option>--select--</option>
+<option>hyderabad</option>
+<option>bng</option>
+<option>chn</option>
+<option>del</option>
+<option>vizag</option>
+</select>
+
+<button class="btn btn-danger" onclick="hai()">search buses</button>
+</div>
+
+
+<script>
+
+var buses=[{from:"hyderabad",to:"vizag",travels:"kaveritravels",arrivetime:"6:30pm",departtime:"9:45am",noofseats:100,fare:1000,ac:"yes"},
+           {from:"hyderabad",to:"vizag",travels:"orangetravels",arrivetime:"11:20am",departtime:"8:15pm",noofseats:90,fare:800,ac:"no"},
+           {from:"hyderabad",to:"vizag",travels:"kvrtravels",arrivetime:"9:10am",departtime:"5:45pm",noofseats:100,fare:1000,ac:"yes"},
+           {from:"hyderabad",to:"vizag",travels:"meghanatravels",arrivetime:"6:20am",departtime:"3:15pm",noofseats:90,fare:800,ac:"no"},
+           {from:"hyderabad",to:"vizag",travels:"krishtravels",arrivetime:"7:10pm",departtime:"7:45am",noofseats:100,fare:900,ac:"no"},
+           {from:"hyderabad",to:"bng",travels:"kaveritravels",arrivetime:"9:00pm",departtime:"10:05am",noofseats:50,fare:1500,ac:"yes"},
+           {from:"hyderabad",to:"bng",travels:"orangetravels",arrivetime:"7:00pm",departtime:"8:05am",noofseats:70,fare:1500,ac:"no"},
+           {from:"hyderabad",to:"bng",travels:"venkattravels",arrivetime:"8:00am",departtime:"9:05pm",noofseats:50,fare:1500,ac:"yes"},
+           {from:"hyderabad",to:"bng",travels:"ramtravels",arrivetime:"6:00am",departtime:"7:05pm",noofseats:70,fare:1500,ac:"yes"},
+           {from:"hyderabad",to:"bng",travels:"kvrtravels",arrivetime:"5:00pm",departtime:"6:05am",noofseats:80,fare:1000,ac:"no"},
+           {from:"hyderabad",to:"chn",travels:"kvvktravels",arrivetime:"8:30pm",departtime:"9:55am",noofseats:80,fare:1300,ac:"yes"},
+           {from:"hyderabad",to:"chn",travels:"meghanatravels",arrivetime:"7:30pm",departtime:"9:02am",noofseats:90,fare:1100,ac:"no"},
+           {from:"hyderabad",to:"chn",travels:"kvrtravels",arrivetime:"8:30am",departtime:"9:55pm",noofseats:80,fare:1300,ac:"yes"},
+           {from:"hyderabad",to:"chn",travels:"kaveritravels",arrivetime:"7:30am",departtime:"9:02pm",noofseats:90,fare:1100,ac:"no"},
+           {from:"hyderabad",to:"chn",travels:"orangetravels",arrivetime:"9:30pm",departtime:"11:55am",noofseats:70,fare:1200,ac:"yes"},
+           {from:"hyderabad",to:"del",travels:"meghanatravels",arrivetime:"7:20pm",departtime:"11:20am",noofseats:90,fare:1400,ac:"no"},
+           {from:"hyderabad",to:"del",travels:"kvrtravels",arrivetime:"5:30pm",departtime:"9:45am",noofseats:90,fare:1400,ac:"yes"},
+           {from:"hyderabad",to:"del",travels:"kvvktravels",arrivetime:"6:30am",departtime:"8:25pm",noofseats:90,fare:1400,ac:"no"},
+           {from:"hyderabad",to:"del",travels:"ramtravels",arrivetime:"4:30pm",departtime:"8:05am",noofseats:90,fare:1400,ac:"yes"},
+           {from:"hyderabad",to:"del",travels:"orangetravels",arrivetime:"7:10am",departtime:"9:38pm",noofseats:90,fare:1400,ac:"no"},
+           {from:"hyderabad",to:"del",travels:"chandrikatravels",arrivetime:"9:10pm",departtime:"9:05am",noofseats:100,fare:1000,ac:"yes"},
+           {from:"hyderabad",to:"vizag",travels:"chandrikatravels",arrivetime:"6:20pm",departtime:"8:45am",noofseats:90,fare:800,ac:"no"},
+           {from:"hyderabad",to:"bng",travels:"chandrikatravels",arrivetime:"9:10am",departtime:"11:45pm",noofseats:100,fare:1000,ac:"yes"},
+           {from:"hyderabad",to:"chn",travels:"chandrikatravels",arrivetime:"6:20am",departtime:"8:45pm",noofseats:90,fare:800,ac:"yes"},
+           {from:"bng",to:"hyderabad",travels:"kaveritravels",arrivetime:"6:30pm",departtime:"9:45am",noofseats:100,fare:800,ac:"no"},
+           {from:"bng",to:"hyderabad",travels:"kvrtravels",arrivetime:"5:30am",departtime:"7:10pm",noofseats:100,fare:800,ac:"yes"},
+           {from:"bng",to:"hyderabad",travels:"ramtravels",arrivetime:"4:10pm",departtime:"8:15am",noofseats:100,fare:800,ac:"no"},
+           {from:"bng",to:"hyderabad",travels:"venkattravels",arrivetime:"7:50am",departtime:"7:25pm",noofseats:100,fare:800,ac:"yes"},
+           {from:"bng",to:"hyderabad",travels:"orangetravels",arrivetime:"6:30am",departtime:"9:45pm",noofseats:100,fare:800,ac:"no"},
+           {from:"bng",to:"vizag",travels:"orangetravels",arrivetime:"6:50pm",departtime:"8:45am",noofseats:100,fare:800,ac:"yes"},
+           {from:"bng",to:"vizag",travels:"kvrtravels",arrivetime:"6:00pm",departtime:"8:10am",noofseats:100,fare:800,ac:"no"},
+           {from:"bng",to:"vizag",travels:"ramtravels",arrivetime:"6:50am",departtime:"8:45pm",noofseats:100,fare:800,ac:"yes"},
+           {from:"bng",to:"vizag",travels:"venkattravels",arrivetime:"7:40pm",departtime:"7:15am",noofseats:100,fare:800,ac:"no"},
+           {from:"bng",to:"vizag",travels:"moderntravels",arrivetime:"4:20pm",departtime:"6:35am",noofseats:100,fare:800,ac:"yes"},
+           {from:"bng",to:"chn",travels:"amaravathitravels",arrivetime:"7:10pm",departtime:"9:20am",noofseats:100,fare:1000,ac:"no"},
+           {from:"bng",to:"chn",travels:"rajadhanitravels",arrivetime:"7:20am",departtime:"9:20pm",noofseats:100,fare:1000,ac:"yes"},
+           {from:"bng",to:"chn",travels:"kvrtravels",arrivetime:"5:30pm",departtime:"7:15am",noofseats:100,fare:1000,ac:"no"},
+           {from:"bng",to:"chn",travels:"annatravels",arrivetime:"6:10pm",departtime:"8:10am",noofseats:100,fare:1000,ac:"yes"},
+           {from:"bng",to:"chn",travels:"krishtravels",arrivetime:"4:20am",departtime:"3:40pm",noofseats:100,fare:1000,ac:"no"},
+           {from:"bng",to:"del",travels:"meghanatravels",arrivetime:"7:10pm",departtime:"9:05am",noofseats:100,fare:1200,ac:"yes"},
+           {from:"bng",to:"del",travels:"orangetravels",arrivetime:"7:40pm",departtime:"9:50am",noofseats:100,fare:1200,ac:"no"},
+           {from:"bng",to:"del",travels:"kvrtravels",arrivetime:"8:50pm",departtime:"8:05am",noofseats:100,fare:1200,ac:"yes"},
+           {from:"bng",to:"del",travels:"ramtravels",arrivetime:"7:20am",departtime:"7:15pm",noofseats:100,fare:1200,ac:"no"},
+           {from:"bng",to:"del",travels:"kaveritravels",arrivetime:"5:40am",departtime:"3:35pm",noofseats:100,fare:1200,ac:"yes"},
+           {from:"bng",to:"hyderabad",travels:"chandrikatravels",arrivetime:"6:30pm",departtime:"7:45am",noofseats:100,fare:800,ac:"yes"},
+           {from:"bng",to:"del",travels:"chandrikatravels",arrivetime:"4:10pm",departtime:"10:15am",noofseats:100,fare:800,ac:"no"},
+           {from:"bng",to:"vizag",travels:"chandrikatravels",arrivetime:"10:30pm",departtime:"9:45am",noofseats:100,fare:800,ac:"yes"},
+           {from:"bng",to:"chn",travels:"chandrikatravels",arrivetime:"8:20am",departtime:"7:05pm",noofseats:100,fare:800,ac:"no"},
+           {from:"chn",to:"vizag",travels:"kaveritravels",arrivetime:"9:30pm",departtime:"9:15am",noofseats:100,fare:1000,ac:"yes"},
+           {from:"chn",to:"vizag",travels:"orangetravels",arrivetime:"6:10am",departtime:"4:25pm",noofseats:90,fare:800,ac:"no"},
+           {from:"chn",to:"vizag",travels:"kvrtravels",arrivetime:"2:10pm",departtime:"3:45am",noofseats:100,fare:1000,ac:"yes"},
+           {from:"chn",to:"vizag",travels:"meghanatravels",arrivetime:"6:20am",departtime:"8:45pm",noofseats:90,fare:800,ac:"no"},
+           {from:"chn",to:"vizag",travels:"krishtravels",arrivetime:"9:10pm",departtime:"11:45am",noofseats:100,fare:900,ac:"no"},
+           {from:"chn",to:"bng",travels:"kaveritravels",arrivetime:"7:00am",departtime:"5:05pm",noofseats:50,fare:1500,ac:"yes"},
+           {from:"chn",to:"bng",travels:"orangetravels",arrivetime:"5:00pm",departtime:"8:05am",noofseats:70,fare:1500,ac:"no"},
+           {from:"chn",to:"bng",travels:"venkattravels",arrivetime:"8:00am",departtime:"9:05pm",noofseats:50,fare:1500,ac:"yes"},
+           {from:"chn",to:"bng",travels:"ramtravels",arrivetime:"6:00pm",departtime:"7:05am",noofseats:70,fare:1500,ac:"yes"},
+           {from:"chn",to:"bng",travels:"kvrtravels",arrivetime:"5:00pm",departtime:"6:05am",noofseats:80,fare:1000,ac:"no"},
+           {from:"chn",to:"hyderabad",travels:"kvvktravels",arrivetime:"8:30pm",departtime:"9:55am",noofseats:80,fare:1300,ac:"yes"},
+           {from:"chn",to:"hyderabad",travels:"meghanatravels",arrivetime:"7:30am",departtime:"9:02pm",noofseats:90,fare:1100,ac:"no"},
+           {from:"chn",to:"hyderabad",travels:"kvrtravels",arrivetime:"8:00pm",departtime:"9:15am",noofseats:80,fare:1300,ac:"yes"},
+           {from:"chn",to:"hyderabad",travels:"kaveritravels",arrivetime:"7:10pm",departtime:"8:42am",noofseats:90,fare:1100,ac:"no"},
+           {from:"chn",to:"hyderabad",travels:"orangetravels",arrivetime:"9:30am",departtime:"11:55pm",noofseats:70,fare:1200,ac:"no"},
+           {from:"chn",to:"del",travels:"meghanatravels",arrivetime:"7:30am",departtime:"11:45pm",noofseats:90,fare:1400,ac:"yes"},
+           {from:"chn",to:"del",travels:"kvrtravels",arrivetime:"5:20pm",departtime:"11:45am",noofseats:90,fare:1400,ac:"no"},
+           {from:"chn",to:"del",travels:"kvvktravels",arrivetime:"4:30am",departtime:"3:15pm",noofseats:90,fare:1400,ac:"yes"},
+           {from:"chn",to:"del",travels:"ramtravels",arrivetime:"6:20pm",departtime:"5:45am",noofseats:90,fare:1400,ac:"no"},
+           {from:"chn",to:"del",travels:"orangetravels",arrivetime:"7:00am",departtime:"8:05pm",noofseats:90,fare:1400,ac:"yes"},
+           {from:"chn",to:"vizag",travels:"chandrikatravels",arrivetime:"9:30pm",departtime:"9:45am",noofseats:100,fare:1000,ac:"yes"},
+           {from:"chn",to:"del",travels:"chandrikatravels",arrivetime:"6:20pm",departtime:"8:45am",noofseats:90,fare:800,ac:"no"},
+           {from:"chn",to:"bng",travels:"chandrikatravels",arrivetime:"9:10am",departtime:"11:45pm",noofseats:100,fare:1000,ac:"yes"},
+           {from:"chn",to:"hyderabad",travels:"chandrikatravels",arrivetime:"6:20am",departtime:"8:45pm",noofseats:90,fare:800,ac:"no"},
+           {from:"del",to:"hyderabad",travels:"kaveritravels",arrivetime:"6:30pm",departtime:"9:05am",noofseats:100,fare:800,ac:"yes"},
+           {from:"del",to:"hyderabad",travels:"kvrtravels",arrivetime:"6:10am",departtime:"7:25pm",noofseats:100,fare:800,ac:"no"},
+           {from:"del",to:"hyderabad",travels:"ramtravels",arrivetime:"6:30pm",departtime:"9:10am",noofseats:100,fare:800,ac:"yes"},
+           {from:"del",to:"hyderabad",travels:"venkattravels",arrivetime:"6:20am",departtime:"5:15pm",noofseats:100,fare:800,ac:"no"},
+           {from:"del",to:"hyderabad",travels:"orangetravels",arrivetime:"5:10pm",departtime:"9:35am",noofseats:100,fare:800,ac:"yes"},
+           {from:"del",to:"vizag",travels:"orangetravels",arrivetime:"7:50pm",departtime:"8:45am",noofseats:100,fare:800,ac:"no"},
+           {from:"del",to:"vizag",travels:"kvrtravels",arrivetime:"6:50am",departtime:"6:45pm",noofseats:100,fare:800,ac:"yes"},
+           {from:"del",to:"vizag",travels:"ramtravels",arrivetime:"8:40pm",departtime:"8:05am",noofseats:100,fare:800,ac:"no"},
+           {from:"del",to:"vizag",travels:"venkattravels",arrivetime:"4:10pm",departtime:"8:45am",noofseats:100,fare:800,ac:"yes"},
+           {from:"del",to:"vizag",travels:"moderntravels",arrivetime:"5:30am",departtime:"4:45pm",noofseats:100,fare:800,ac:"no"},
+           {from:"del",to:"chn",travels:"amaravathitravels",arrivetime:"6:40pm",departtime:"9:20am",noofseats:100,fare:1000,ac:"yes"},
+           {from:"del",to:"chn",travels:"rajadhanitravels",arrivetime:"7:20am",departtime:"9:20pm",noofseats:100,fare:1000,ac:"yes"},
+           {from:"del",to:"chn",travels:"kvrtravels",arrivetime:"7:40pm",departtime:"8:02am",noofseats:100,fare:1000,ac:"no"},
+           {from:"del",to:"chn",travels:"annatravels",arrivetime:"5:20am",departtime:"9:20pm",noofseats:100,fare:1000,ac:"yes"},
+           {from:"del",to:"chn",travels:"krishtravels",arrivetime:"7:20pm",departtime:"6:10am",noofseats:100,fare:1000,ac:"no"},
+           {from:"del",to:"bng",travels:"meghanatravels",arrivetime:"4:30pm",departtime:"5:05am",noofseats:100,fare:1200,ac:"yes"},
+           {from:"del",to:"bng",travels:"orangetravels",arrivetime:"5:40pm",departtime:"9:05am",noofseats:100,fare:1200,ac:"no"},
+           {from:"del",to:"bng",travels:"kvrtravels",arrivetime:"7:40am",departtime:"7:05am",noofseats:100,fare:1200,ac:"yes"},
+           {from:"del",to:"bng",travels:"ramtravels",arrivetime:"4:20pm",departtime:"4:05am",noofseats:100,fare:1200,ac:"no"},
+           {from:"del",to:"bng",travels:"kaveritravels",arrivetime:"8:40pm",departtime:"9:05am",noofseats:100,fare:1200,ac:"yes"},
+           {from:"del",to:"bng",travels:"chandrikatravels",arrivetime:"7:40pm",departtime:"8:15am",noofseats:100,fare:1200,ac:"no"},
+           {from:"del",to:"vizag",travels:"chandrikatravels",arrivetime:"7:10am",departtime:"7:05pm",noofseats:100,fare:1200,ac:"yes"},
+           {from:"del",to:"chn",travels:"chandrikatravels",arrivetime:"6:20am",departtime:"6:05pm",noofseats:100,fare:1200,ac:"no"},
+           {from:"del",to:"hyderabad",travels:"chandrikatravels",arrivetime:"7:40pm",departtime:"9:05am",noofseats:100,fare:1200,ac:"yes"},
+           {from:"vizag",to:"hyderabad",travels:"kaveritravels",arrivetime:"6:10pm",departtime:"7:15am",noofseats:100,fare:800,ac:"no"},
+           {from:"vizag",to:"hyderabad",travels:"kvrtravels",arrivetime:"6:30am",departtime:"8:15pm",noofseats:100,fare:800,ac:"no"},
+           {from:"vizag",to:"hyderabad",travels:"ramtravels",arrivetime:"7:30am",departtime:"9:45pm",noofseats:100,fare:800,ac:"yes"},
+           {from:"vizag",to:"hyderabad",travels:"venkattravels",arrivetime:"8:30pm",departtime:"8:05am",noofseats:100,fare:800,ac:"no"},
+           {from:"vizag",to:"hyderabad",travels:"orangetravels",arrivetime:"6:30pm",departtime:"6:15am",noofseats:100,fare:800,ac:"yes"},
+           {from:"vizag",to:"del",travels:"orangetravels",arrivetime:"4:50pm",departtime:"5:45am",noofseats:100,fare:800,ac:"no"},
+           {from:"vizag",to:"del",travels:"kvrtravels",arrivetime:"1:20pm",departtime:"2:45am",noofseats:100,fare:800,ac:"yes"},
+           {from:"vizag",to:"del",travels:"ramtravels",arrivetime:"6:50am",departtime:"8:45pm",noofseats:100,fare:800,ac:"no"},
+           {from:"vizag",to:"del",travels:"venkattravels",arrivetime:"6:10pm",departtime:"8:45am",noofseats:100,fare:800,ac:"yes"},
+           {from:"vizag",to:"del",travels:"moderntravels",arrivetime:"7:50pm",departtime:"7:45am",noofseats:100,fare:800,ac:"no"},
+           {from:"vizag",to:"chn",travels:"amaravathitravels",arrivetime:"5:20am",departtime:"9:20pm",noofseats:100,fare:1000,ac:"no"},
+           {from:"vizag",to:"chn",travels:"rajadhanitravels",arrivetime:"7:20am",departtime:"7:30pm",noofseats:100,fare:1000,ac:"yes"},
+           {from:"vizag",to:"chn",travels:"kvrtravels",arrivetime:"4:20pm",departtime:"5:20am",noofseats:100,fare:1000,ac:"no"},
+           {from:"vizag",to:"chn",travels:"annatravels",arrivetime:"1:10pm",departtime:"2:20am",noofseats:100,fare:1000,ac:"yes"},
+           {from:"vizag",to:"chn",travels:"krishtravels",arrivetime:"2:20pm",departtime:"4:10am",noofseats:100,fare:1000,ac:"no"},
+           {from:"vizag",to:"bng",travels:"meghanatravels",arrivetime:"7:40pm",departtime:"9:05am",noofseats:100,fare:1200,ac:"yes"},
+           {from:"vizag",to:"bng",travels:"orangetravels",arrivetime:"7:10am",departtime:"7:05pm",noofseats:100,fare:1200,ac:"no"},
+           {from:"vizag",to:"bng",travels:"kvrtravels",arrivetime:"5:20pm",departtime:"8:15am",noofseats:100,fare:1200,ac:"yes"},
+           {from:"vizag",to:"bng",travels:"ramtravels",arrivetime:"2:40pm",departtime:"1:05am",noofseats:100,fare:1200,ac:"no"},
+           {from:"vizag",to:"bng",travels:"kaveritravels",arrivetime:"6:50am",departtime:"5:25pm",noofseats:100,fare:1200,ac:"yes"},
+           {from:"vizag",to:"bng",travels:"chandrikatravels",arrivetime:"7:40am",departtime:"8:05pm",noofseats:100,fare:1200,ac:"no"},
+           {from:"vizag",to:"hyderabad",travels:"chandrikatravels",arrivetime:"3:40pm",departtime:"9:05am",noofseats:100,fare:1200,ac:"no"},
+           {from:"vizag",to:"chn",travels:"chandrikatravels",arrivetime:"2:10am",departtime:"5:15pm",noofseats:100,fare:1200,ac:"yes"},
+           {from:"vizag",to:"del",travels:"chandrikatravels",arrivetime:"7:00am",departtime:"6:05pm",noofseats:100,fare:1200,ac:"no"}]
+
+function hai(){
+
+var str=`<table border="2px" id="tab"  class="table table-hover"><tr><th>S.no</th><th>From</th><th>To</th><th>Travels</th><th>Arrivetime</th><th>departtime</th><th>Noofseats</th><th>Fare</th><th>AC/Non-Ac</th><th>booknow</th></tr>`
+var p=document.getElementById("b");
+var ab=document.getElementById("abc").value;
+var bc=document.getElementById("bca").value;
+   var st=str+""; 
+if(ab==bc){
+       window.alert("same address buses not available");
+}
+
+
+var vamsi="";
+
+var c=0; 
+
+      var button=`<a href="D:/buses project/buses1.html"><button class="btn btn-info">booknow</button></a>`;
+  for(var i=0;i<buses.length;i++){
+
+if(buses[i].from==ab&&buses[i].to==bc){
+
+if(buses[i].ac=="yes")
+{ vamsi="AC"} 
+
+else if(buses[i].ac=="no")
+
+{vamsi="Non-Ac"}
+
+st=st+
+`<tr><td>${[++c]}</td><td>${buses[i].from}</td><td>${buses[i].to}</td><td>${buses[i].travels}</td><td>${buses[i].arrivetime}</td><td>${buses[i].departtime}</td><td>${buses[i].noofseats}</td><td>${buses[i].fare}</td><td>${vamsi}</td><td>${button}</td></tr><br>`
+}
+
+
+
+}
+
+var str2=st+`</table>`;
+p.innerHTML=str2;
+
+}
+
+
+</script>
+
+
+<h2 id="b"></h2>
+</body>
+</html>

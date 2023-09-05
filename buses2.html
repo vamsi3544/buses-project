@@ -1,0 +1,180 @@
+<html>
+<head>
+
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
+<style>
+ body{background-image: url("./images/night-london-pub-street-wallpaper-preview.jpg");
+      background-size:cover;
+      }
+       form{
+        
+        margin-left: 150px;
+        margin-top: 160px;
+         color:yellow;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 20px;
+
+      } 
+      #term input:not(.terms){
+		display: block;
+		content: center;
+	} 
+   input[type=text]{
+    border: 5px solid orange;
+    border-radius: 5px;
+    width:300px;
+    height: 35px;
+    color: brown;
+    font-family: "jokerman";
+   }
+
+   input[type=date]{
+    border: 5px solid orange;
+    border-radius: 5px;
+    width:300px;
+    height: 35px;
+    color: brown;
+    font-family: "jokerman";
+   }
+
+   input[type=number]{
+    border: 5px solid orange;
+    border-radius: 5px;
+    width:300px;
+    height: 35px;
+    color: brown;
+    font-family: "jokerman";
+   }
+
+   input[type=submit]{
+    border: 5px solid green;
+    border-radius: 10px;
+    width:130px;
+    height: 35px;
+    color: blue;
+    font-family: "jokerman";
+    margin-left: 90px;
+    font-weight: bold;
+   }
+  #d{
+   
+    border: 5px solid blueviolet;
+    border-radius: 5px;
+    width:300px;
+    height: 35px;
+    color: brown;
+    font-family: "jokerman";
+  }
+
+  #s{
+   
+   border: 5px solid blueviolet;
+   border-radius: 5px;
+   width:300px;
+   height: 35px;
+   color: brown;
+   font-family: "jokerman";
+   background-color: aqua;
+ }
+
+ #chandu{
+  
+   border: 5px solid blueviolet;
+   border-radius: 5px;
+   width:200px;
+   height: 35px;
+   color: red;
+   text-align: center;
+   font-family: "jokerman";
+   font-weight: bold;
+   
+ }
+ 
+
+</style>
+</head>
+<body>
+
+
+  <form action="./buses3.html" name="f1" id="term"  onsubmit="return work()">
+    Name:<input type="text" name="name" placeholder="enter your name">
+    <h4 id="a"></h4>
+    Date of journey:<input type="date" name="JOURNEY" placeholder="date of journey">
+    <h4 id="b"></h4>
+    select seats:<select id="chandu"  onchange="mult()">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+              </select>    
+              <h4 id="c"></h4>
+    Bill:<input id="d" readonly>
+    Bill2:<input id="s" disabled>
+    
+    account No:<input type="number" name="anumber"placeholder="account NO">
+    <h4 id="e"></h4>
+    Enter OTP:<input type="number" name="otp"placeholder="enter otp">
+    <h4 id="f"></h4>
+    
+       <input type="submit" value="Paynow">
+        </form>
+
+<script>
+
+function work(){
+var nn=document.forms["f1"]["name"].value;
+var cc=document.forms["f1"]["JOURNEY"].value;
+var mn=document.forms["f1"]["anumber"].value;
+var tp=document.forms["f1"]["otp"].value;
+if(nn==""||nn==null){
+		document.getElementById("a").style.color="red"
+		document.getElementById("a").innerHTML="plese file your name"
+		return false;
+	}
+    else{document.getElementById("a").innerHTML=""}
+    if(cc==""||cc==null){
+		document.getElementById("b").style.color="red"
+		document.getElementById("b").innerHTML="plese file date of journey"
+		return false;
+	}
+    else{document.getElementById("b").innerHTML=""}
+    if (mn.length<12 || mn.length>16){
+		document.getElementById("e").style.color="red"
+		document.getElementById("e").innerHTML="enter Minimum 12 digits"
+		return false;
+	}
+    else{document.getElementById("e").innerHTML=""}
+
+
+    if (tp.length<4 || tp.length>6){
+
+        document.getElementById("f").style.color="red"
+        document.getElementById("f").innerHTML=" enter valid OTP in 4 or 6 digits"
+    return false;
+}
+    else{document.getElementById("f").innerHTML=" "}
+}
+
+function mult(){
+    var ss=document.getElementById('chandu').value;
+     var price=1200;
+     var total=price*ss;
+     document.getElementById('d').value=total;
+     
+
+}
+
+
+</script>
+<!-- Name: <input type="text" name="enteryourname" placeholder="enter your name"><br></br>
+No of seats: <input type="text" name="noofseats" placeholder="No of seats"><br></br>
+AMOUNT: <input type="text" name="totalamount" placeholder="total amount"> <br></br>
+A/C NO: <input type="password" name="enteryourA/CNO" placeholder="enter your account number"><br></br>
+OTP: <input type="password" name="pswd" placeholder="enter your account number"><br></br>
+  <button>PAY NOW</button> -->
+</body>
+</html>
